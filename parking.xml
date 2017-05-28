@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+chan enter,leave;</declaration><template><name x="5" y="5">Parking</name><declaration>// Place local declarations here.
+</declaration><location id="id0" x="176" y="-40"><name x="166" y="-70">occupied</name></location><location id="id1" x="16" y="-40"><name x="6" y="-70">vacant</name></location><init ref="id1"/><transition><source ref="id0"/><target ref="id1"/><label kind="synchronisation" x="72" y="64">leave?</label><nail x="176" y="64"/><nail x="16" y="64"/></transition><transition><source ref="id1"/><target ref="id0"/><label kind="synchronisation" x="72" y="-64">enter?</label></transition></template><template><name>Car</name><location id="id2" x="200" y="0"><name x="190" y="-30">parked</name></location><location id="id3" x="0" y="0"><name x="-10" y="-30">not_parked</name></location><init ref="id3"/><transition><source ref="id2"/><target ref="id3"/><label kind="synchronisation" x="80" y="128">leave!</label><nail x="200" y="128"/><nail x="0" y="128"/></transition><transition><source ref="id3"/><target ref="id2"/><label kind="synchronisation" x="72" y="0">enter!</label></transition></template><system>// Place template instantiations here.
+spot1=Parking();
+spot2=Parking();
+spot3=Parking();
+spot4=Parking();
+
+// List one or more processes to be composed into a system.
+system spot1,spot2,spot3,spot4,Car;
+</system></nta>
